@@ -4,7 +4,22 @@
 //
 // import { User } from 'path/to/interfaces';
 
+
 export type User = {
   id: number
   name: string
+}
+
+export type Busstop = {
+  id: number
+  name: string
+  lat: number
+  lng: number
+}
+
+export type facility = {
+  id: number
+  name: string
+  lat: number
+  lng: number
 }
