@@ -17,8 +17,7 @@ export type Busstop = {
   lng: number
 }
 
-export type facility = {
-  id: number
+export type facilityCard = {
   name: string
   lat: number
   lng: number

@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react'
 import Head from 'next/head'
-import styled from 'styled-components'
-
+import { Container } from 'react-bootstrap'
 import Header from './Header'
 
 type Props = {
@@ -9,7 +8,8 @@ type Props = {
   title?: string
 }
 
-const Layout = ({ children, title = 'This is the default title' }: Props) => (
+//全ページ共通のレイアウトコンポーネント
+const Layout = ({ children, title = 'のっティバスどこ' }: Props) => (
   <div>
     <Head>
       <title>{title}</title>
@@ -25,9 +25,13 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
       <Header />
     </header>
     {children}
-    <footer>
+    <footer className='mt-auto jumbotron-fluid fixed-bottom bg-light'>
       <hr />
-      <span>I'm here to stay (Footer)</span>
+      <Container className='d-flex flex-row '>
+        <p>2022 BusStopProject</p>
+        <p className='ms-auto'>金沢工業大学</p>
+      </Container>
+      <span></span>
     </footer>
   </div>
 )
