@@ -10,6 +10,13 @@ export type User = {
   name: string
 }
 
+export type route = {
+  id: number
+  name: string
+  color: string
+  center: [number, number]
+}
+
 export type Busstop = {
   id: number
   name: string

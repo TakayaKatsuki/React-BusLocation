@@ -4,22 +4,25 @@ import Map from "./Map";
 import styled from "styled-components";
 
 
-const ExtendsNavLink = styled(Nav.Link)` 
-	background-color: ${props => props.primary ? 'white' : 'palevioletred'};
-`
+// const ExtendsNavLink = styled(Nav.Link)` 
+// 	background-color: ${props => props.primary ? 'white' : 'palevioletred'};
+// `
 
 const MapControlTab: VFC = () => {
 	const route = ["中央ルート", "南部ルート", "西部ルート", "北部ルート", "のんキールート"];
 	
   return(
-		<>
-			<Nav justify variant="tabs" className="">
+	<>
+	    <Nav justify variant="tabs" className="d-flex flex-row " defaultActiveKey={"中央ルート"}>
 				{route.map( route => (
-					<ExtendsNavLink eventKey={route}>{route}</ExtendsNavLink>
+					<Nav.Link key={route} eventKey={route} className="">{route}</Nav.Link>
 					))}
 			</Nav>
-			{/* <Map /> */}
-		</>
+			<div className="">
+				<Map />
+			</div>
+
+	</>
 	)
 }
 

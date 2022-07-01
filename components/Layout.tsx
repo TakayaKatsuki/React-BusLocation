@@ -21,12 +21,12 @@ const Layout = ({ children, title = 'のっティバスどこ' }: Props) => (
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
         crossOrigin="anonymous"/>
     </Head>
-    <header>
-      <Header />
-    </header>
+    <Header />
+    
     {children}
-    <footer className='mt-auto jumbotron-fluid fixed-bottom bg-light'>
-      <hr />
+    {/* { jumbotron-fluidいるのかわからん} */}
+    <footer className='mt-auto fixed-bottom jumbotron-fluid bg-light'>
+      <hr className='mt-0'/>
       <Container className='d-flex flex-row '>
         <p>2022 BusStopProject</p>
         <p className='ms-auto'>金沢工業大学</p>
