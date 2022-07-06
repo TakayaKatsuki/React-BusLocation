@@ -24,7 +24,7 @@ const Layout = ({ children, title = 'のっティバスどこ' }: Props) => (
     <Header />
     
     {children}
-    {/* { jumbotron-fluidいるのかわからん} */}
+    {/* { footerもコンポーネント化する} */}
     <footer className='mt-auto fixed-bottom jumbotron-fluid bg-light'>
       <hr className='mt-0'/>
       <Container className='d-flex flex-row '>

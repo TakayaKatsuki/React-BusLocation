@@ -1,26 +1,38 @@
-import { ReactNode, VFC } from "react";
-import { Row, Col, Tab, Nav, TabContent } from "react-bootstrap";
-import Map from "./Map";
+import { ReactNode, useState, VFC } from "react";
+import { Nav } from "react-bootstrap";
 import styled from "styled-components";
 
+import Map from "./Map";
+import { routeData } from "../src/utils/data";
 
 // const ExtendsNavLink = styled(Nav.Link)` 
 // 	background-color: ${props => props.primary ? 'white' : 'palevioletred'};
 // `
 
+
 const MapControlTab: VFC = () => {
-	const route = ["中央ルート", "南部ルート", "西部ルート", "北部ルート", "のんキールート"];
+	const [route, setRoute] = useState<Number>(1)
+
+	const routes = routeData
+	
 	
   return(
 	<>
-	    <Nav justify variant="tabs" className="d-flex flex-row " defaultActiveKey={"中央ルート"}>
-				{route.map( route => (
-					<Nav.Link key={route} eventKey={route} className="">{route}</Nav.Link>
-					))}
-			</Nav>
-			<div className="">
-				<Map />
-			</div>
+		<Nav justify variant="tabs" className="d-flex flex-row " defaultActiveKey={"1"} >
+			{routes.map( route => (
+				<Nav.Link 
+					key={route.id} 
+					eventKey={route.id}
+					onSelect={() => setRoute(route.id)}
+					className=""
+					>
+						{route.name}
+				</Nav.Link>
+				))}
+		</Nav>
+		<div className="">
+			<Map />
+		</div>
 
 	</>
 	)

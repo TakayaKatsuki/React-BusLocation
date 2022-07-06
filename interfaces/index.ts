@@ -18,10 +18,10 @@ export type route = {
 }
 
 export type Busstop = {
-  id: number
-  name: string
-  lat: number
-  lng: number
+  id: string
+  location: string
+  lat: string
+  lng: string
 }
 
 export type facilityCard = {
