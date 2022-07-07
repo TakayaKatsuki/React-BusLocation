@@ -14,7 +14,7 @@ export type route = {
   id: number
   name: string
   color: string
-  center: [number, number]
+  center: {lat: number, lng: number}
 }
 
 export type Busstop = {

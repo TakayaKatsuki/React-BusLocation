@@ -8,30 +8,37 @@ import { routeData } from "../src/utils/data";
 // const ExtendsNavLink = styled(Nav.Link)` 
 // 	background-color: ${props => props.primary ? 'white' : 'palevioletred'};
 // `
-
+type location = {
+	lat: number
+	lng: number
+}
 
 const MapControlTab: VFC = () => {
-	const [route, setRoute] = useState<Number>(1)
-
-	const routes = routeData
-	
+	const [route, setRoute] = useState<number>(1)
+	const [center, setCenter] = useState<location>({lat: 36.527153, lng: 136.613836})
 	
   return(
 	<>
 		<Nav justify variant="tabs" className="d-flex flex-row " defaultActiveKey={"1"} >
-			{routes.map( route => (
+			{routeData.map( data => (
 				<Nav.Link 
-					key={route.id} 
-					eventKey={route.id}
-					onSelect={() => setRoute(route.id)}
+					key={data.id} 
+					eventKey={data.id}
+					onClick={() => {
+						setRoute(data.id)
+						setCenter(data.center)
+					}}
 					className=""
 					>
-						{route.name}
+						{data.name}
 				</Nav.Link>
 				))}
 		</Nav>
 		<div className="">
-			<Map />
+			<Map 
+				route={route}
+				center={center}
+				/>
 		</div>
 
 	</>
