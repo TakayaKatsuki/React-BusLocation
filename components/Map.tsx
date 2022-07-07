@@ -1,5 +1,5 @@
 import { ReactNode, VFC, useEffect, useState } from 'react'
-import GoogleMapReact from "google-map-react";/* > npm i google-map-react */
+import GoogleMapReact from "google-map-react";/* このコマンド打ってくださいね > npm i google-map-react */
 import options from './MapActivity/MapStyle'
 import { Busstop } from '../interfaces'
 import CentralInfo from '../src/utils/json/busstoplocation/centralBusStops.json'
@@ -12,6 +12,7 @@ const center = {
   lat: 36.527153,
   lng: 136.613836
 }
+
 
 
 
