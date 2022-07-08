@@ -1,13 +1,13 @@
 import { ReactNode, VFC, useEffect, useState, useRef } from 'react'
 import GoogleMapReact from "google-map-react";
-import options from './MapActivity/MapStyle'
-import { Busstop } from '../interfaces'
+import options from './MapStyle'
+import { Busstop } from '../../interfaces'
 
-import CentralInfo from '../src/utils/json/busstoplocation/centralBusStops.json'
-import SouthInfo from '../src/utils/json/busstoplocation/southBusStops.json'
-import WestInfo from '../src/utils/json/busstoplocation/westBusStops.json'
-import NorthInfo from '../src/utils/json/busstoplocation/northBusStops.json'
-import NonkeyInfo from '../src/utils/json/busstoplocation/nonkeyBusStops.json'
+import CentralInfo from '../../src/utils/json/busstoplocation/centralBusStops.json'
+import SouthInfo from '../../src/utils/json/busstoplocation/southBusStops.json'
+import WestInfo from '../../src/utils/json/busstoplocation/westBusStops.json'
+import NorthInfo from '../../src/utils/json/busstoplocation/northBusStops.json'
+import NonkeyInfo from '../../src/utils/json/busstoplocation/nonkeyBusStops.json'
 
 type Props = {
   route: Number
@@ -30,7 +30,6 @@ const Map: VFC<Props> = ({ route, center }) => {
   const markerRef = useRef([])
 
   useEffect(() => {
-    console.log("renderEff")
     try {
       const bounds = new maps.LatLngBounds()
       markerRef.current.map((m) => {
@@ -99,11 +98,9 @@ const Map: VFC<Props> = ({ route, center }) => {
       }
       map.fitBounds(bounds)  
     } catch (error) {
-      console.log("error")
+
     }
   },) 
-
-  console.log("render")
 
   const handleApiLoaded = (object: { map: any, maps: any}) => {
     console.log("APILOAD")
@@ -113,7 +110,7 @@ const Map: VFC<Props> = ({ route, center }) => {
 
 
   return (
-    <div id='map-canvas' className="row-expanded" style={{ height:"100vh" }}>
+    <div id='map-canvas'>
       <GoogleMapReact
         bootstrapURLKeys={{ key:"AIzaSyAWn2P6KSq0O7akTgkAYCvlSy_W1hDTgNQ", language:'ja' }}
         center={center}

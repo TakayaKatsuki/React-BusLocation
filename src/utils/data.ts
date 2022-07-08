@@ -8,7 +8,3 @@ export const routeData: route[] = [
     { id: 4, name: '北部ルート' , color:"#8bc34a", center: {lat: 36.54353, lng: 136.606178}},
     { id: 5, name: 'のんキールート' , color:"#974ac3", center: {lat: 36.541579, lng: 136.598258}},
   ]
-
-  export const BusStopDataCentral: Busstop[] = [
-
-  ]

@@ -1,5 +1,5 @@
 import Layout from '../components/Layout'
-import Map from '../components/Map'
+import Map from '../components/MapActivity/Map'
 import MapControlTab from '../components/MapControlTab'
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
