@@ -1,4 +1,4 @@
-import { ReactNode, useState, VFC } from "react";
+import { useState, VFC } from "react";
 import { Nav } from "react-bootstrap";
 import styled, { CSSProperties } from "styled-components";
 

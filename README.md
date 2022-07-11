@@ -1,4 +1,13 @@
 # 仮作成中
+
+## 入れたもの(use package)
+
+- google-map-react(似たやつ多いので注意)
+- fontawesome
+- ReactBootStrap
+- styled-components
+- firebase(まだ使ってない)
+
 # TypeScript Next.js example
 
 This is a really simple project that shows the usage of Next.js with TypeScript.

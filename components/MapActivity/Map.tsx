@@ -112,7 +112,7 @@ const Map: VFC<Props> = ({ route, center }) => {
   return (
     <div id='map-canvas'>
       <GoogleMapReact
-        bootstrapURLKeys={{ key:"AIzaSyAWn2P6KSq0O7akTgkAYCvlSy_W1hDTgNQ", language:'ja' }}
+        bootstrapURLKeys={{ key:process.env.KEY_GOOGLE_MAP, language:'ja' }}
         center={center}
         defaultZoom={15}
         yesIWantToUseGoogleMapApiInternals={true}
