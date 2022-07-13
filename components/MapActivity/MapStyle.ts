@@ -1,4 +1,3 @@
-import React from "react";
 
 	const main_color = '#2d313f',
 		saturation_value = -20,

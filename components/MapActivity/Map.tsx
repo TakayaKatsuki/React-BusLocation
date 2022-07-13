@@ -1,5 +1,5 @@
-import { ReactNode, VFC, useEffect, useState, useRef } from 'react'
-import GoogleMapReact from "google-map-react";
+import { VFC, useEffect, useState, useRef } from 'react'
+import GoogleMapReact from "google-map-react"
 import options from './MapStyle'
 import { Busstop } from '../../interfaces'
 
@@ -8,10 +8,16 @@ import SouthInfo from '../../src/utils/json/busstoplocation/southBusStops.json'
 import WestInfo from '../../src/utils/json/busstoplocation/westBusStops.json'
 import NorthInfo from '../../src/utils/json/busstoplocation/northBusStops.json'
 import NonkeyInfo from '../../src/utils/json/busstoplocation/nonkeyBusStops.json'
+import CurrentMarker from './CurrentMarker';
 
 type Props = {
-  route: Number
+  route: number
   center: {lat: number, lng: number}
+}
+
+type location = {
+	lat: number
+	lng: number
 }
 
 const Map: VFC<Props> = ({ route, center }) => {
@@ -27,21 +33,23 @@ const Map: VFC<Props> = ({ route, center }) => {
 
   const [map, setMap] = useState(null)
   const [maps, setMaps] = useState(null)
+  const [currentPosition, setCurrentPosition] = useState<location>()
   const markerRef = useRef([])
+  
 
   useEffect(() => {
     try {
       const bounds = new maps.LatLngBounds()
-      markerRef.current.map((m) => {
+      markerRef.current.forEach((m) => {
         m.setMap(null)
       })
       switch (route) {
         case 1:
-          CentralInfo.central.map( info => {
+          CentralInfo.central.forEach( info => {
             const marker = new maps.Marker({
               map,
-              position: {lat: parseFloat(info.lat), lng: parseFloat(info.lng)}
-              // context: a.location
+              position: {lat: parseFloat(info.lat), lng: parseFloat(info.lng)},
+              context: info.location
               // icon: image
             })
             markerRef.current.push(marker)
@@ -49,11 +57,11 @@ const Map: VFC<Props> = ({ route, center }) => {
           })
           break
         case 2:
-          SouthInfo.south.map( info => {
+          SouthInfo.south.forEach( info => {
             const marker = new maps.Marker({
               map,
-              position: {lat: parseFloat(info.lat), lng: parseFloat(info.lng)}
-              // context: a.location
+              position: {lat: parseFloat(info.lat), lng: parseFloat(info.lng)},
+              context: info.location
               // icon: image
             })
             markerRef.current.push(marker)
@@ -61,11 +69,11 @@ const Map: VFC<Props> = ({ route, center }) => {
           })
           break
         case 3:
-          WestInfo.west.map( info => {
+          WestInfo.west.forEach( info => {
             const marker = new maps.Marker({
               map,
-              position: {lat: parseFloat(info.lat), lng: parseFloat(info.lng)}
-              // context: a.location
+              position: {lat: parseFloat(info.lat), lng: parseFloat(info.lng)},
+              context: info.location
               // icon: image
             })
             markerRef.current.push(marker)
@@ -73,11 +81,11 @@ const Map: VFC<Props> = ({ route, center }) => {
           })
           break  
         case 4:
-          NorthInfo.north.map( info => {
+          NorthInfo.north.forEach( info => {
             const marker = new maps.Marker({
               map,
-              position: {lat: parseFloat(info.lat), lng: parseFloat(info.lng)}
-              // context: a.location
+              position: {lat: parseFloat(info.lat), lng: parseFloat(info.lng)},
+              context: info.location
               // icon: image
             })
             markerRef.current.push(marker)
@@ -85,11 +93,11 @@ const Map: VFC<Props> = ({ route, center }) => {
           })
           break
         default:
-          NonkeyInfo.nonkey.map( info => {
+          NonkeyInfo.nonkey.forEach( info => {
             const marker = new maps.Marker({
               map,
-              position: {lat: parseFloat(info.lat), lng: parseFloat(info.lng)}
-              // context: a.location
+              position: {lat: parseFloat(info.lat), lng: parseFloat(info.lng)},
+              context: info.location
               // icon: image
             })
             markerRef.current.push(marker)
@@ -98,12 +106,12 @@ const Map: VFC<Props> = ({ route, center }) => {
       }
       map.fitBounds(bounds)  
     } catch (error) {
-
+      
     }
-  },) 
+  }) 
 
   const handleApiLoaded = (object: { map: any, maps: any}) => {
-    console.log("APILOAD")
+    //console.log("APILOAD")
     setMap(object.map)
     setMaps(object.maps)
   }
@@ -112,13 +120,19 @@ const Map: VFC<Props> = ({ route, center }) => {
   return (
     <div id='map-canvas'>
       <GoogleMapReact
-        bootstrapURLKeys={{ key:process.env.KEY_GOOGLE_MAP, language:'ja' }}
+        bootstrapURLKeys={{ key: process.env.NEXT_PUBLIC_GOOGLE_MAP_KEY, language:'ja' }}
         center={center}
         defaultZoom={15}
         yesIWantToUseGoogleMapApiInternals={true}
         onGoogleApiLoaded={handleApiLoaded}
         // options={options}
         >
+          {currentPosition ? (
+            <CurrentMarker 
+            lat={currentPosition.lat} 
+            lng={currentPosition.lng}
+            />
+          ):null}
       </GoogleMapReact>
     </div>
   )

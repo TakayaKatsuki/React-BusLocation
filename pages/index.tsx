@@ -1,13 +1,19 @@
 import Layout from '../components/Layout'
-import Map from '../components/MapActivity/Map'
 import MapControlTab from '../components/MapControlTab'
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+const IndexWrapper = styled.div`
+  /* display: flex;
+  flex-direction: column; */
+`
+
 const IndexPage = () => (
-  <Layout title='のっティバスどこ'>
-    <MapControlTab />
-  </Layout>
+  <IndexWrapper>
+    <Layout title='のっティバスどこ'>
+      <MapControlTab />
+    </Layout>
+  </IndexWrapper>
 )
 
 export default IndexPage

@@ -1,13 +1,14 @@
 import { useState, VFC } from "react";
 import { Nav } from "react-bootstrap";
-import styled, { CSSProperties } from "styled-components";
+import styled from "styled-components";
 
 import Map from "./MapActivity/Map";
 import { routeData } from "../src/utils/data";
 
-type location = {
-	lat: number
-	lng: number
+type data = {
+	id: number
+	color: string
+	center: {lat: number, lng: number}
 }
 
 const ColorBar = styled.div`
@@ -16,37 +17,41 @@ const ColorBar = styled.div`
 	background-color: ${props => props.color};
 `
 
-const MapControlTab: VFC = () => {
-	const [route, setRoute] = useState<number>(1)
-	const [center, setCenter] = useState<location>({lat: 36.527153, lng: 136.613836})
-	const [color, setColor] = useState<string>("#f44336")
+const MapWrapper = styled.div`
 	
+`
+
+const MapControlTab: VFC = () => {
+	const [route, setRoute] = useState<data>({id: 1, color:"#f44336", center: {lat:36.527153, lng:136.613836}})
+
   return(
 	<>
-		<Nav justify variant="tabs" className="d-flex flex-row " defaultActiveKey={"1"} >
+		<Nav justify variant="tabs" className="d-flex flex-row" defaultActiveKey={"1"} >
 			{routeData.map( data => (
 					<Nav.Link 
 						key={data.id} 
 						eventKey={data.id}
 						style={{backgroundColor: data.color, color: "white"}}
 						onClick={() => {
-							setRoute(data.id)
-							setCenter(data.center)
-							setColor(data.color)
+							setRoute(data)
 						}}
 						>
 							{data.name}
 					</Nav.Link>
 				))}
 		</Nav>
-		<ColorBar color={color}/>
-		<div >
-			<Map 
-				route={route}
-				center={center}
-				/>
+		<ColorBar color={route.color}/>
+		<div>
+			<div>
+				
+			</div>
+			<MapWrapper>	
+				<Map 
+					route={route.id}
+					center={route.center}
+					/>
+			</MapWrapper>
 		</div>
-
 	</>
 	)
 }
