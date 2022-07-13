@@ -20,15 +20,17 @@ const Layout = ({ children, title = 'のっティバスどこ' }: Props) => (
         href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
         crossOrigin="anonymous"/>
+      <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
+
     </Head>
     <Header />
     
     {children}
     {/* { footerもコンポーネント化する} */}
-    <footer className='mt-auto fixed-bottom jumbotron-fluid bg-light'>
+    <footer className='wf-roundedmplus1c mt-auto fixed-bottom jumbotron-fluid bg-light'>
       <hr className='mt-0'/>
       <Container className='d-flex flex-row '>
-        <p>2022 BusStopProject</p>
+        <p>©2022 BusStopProject</p>
         <p className='ms-auto'>金沢工業大学</p>
       </Container>
       <span></span>

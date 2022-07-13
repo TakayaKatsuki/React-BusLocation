@@ -32,6 +32,7 @@ const MapControlTab: VFC = () => {
 						key={data.id} 
 						eventKey={data.id}
 						style={{backgroundColor: data.color, color: "white"}}
+						className='medium'
 						onClick={() => {
 							setRoute(data)
 						}}

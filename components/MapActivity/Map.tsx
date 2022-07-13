@@ -34,8 +34,24 @@ const Map: VFC<Props> = ({ route, center }) => {
   const [map, setMap] = useState(null)
   const [maps, setMaps] = useState(null)
   const [currentPosition, setCurrentPosition] = useState<location>()
+  const [mapCenter, setMapCenter] = useState<location>(center)
   const markerRef = useRef([])
-  
+
+  const success = (data) => {
+    const currentPosition = {
+      lat:data.coords.latitude,
+      lng:data.coords.longitude
+    }
+    setCurrentPosition(currentPosition)
+    setMapCenter(currentPosition)
+    console.log(currentPosition)
+  }
+  const error = () => {
+    
+  }
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(success, error);
+  }, []);//初回レンダリングのみ
 
   useEffect(() => {
     try {
@@ -121,7 +137,7 @@ const Map: VFC<Props> = ({ route, center }) => {
     <div id='map-canvas'>
       <GoogleMapReact
         bootstrapURLKeys={{ key: process.env.NEXT_PUBLIC_GOOGLE_MAP_KEY, language:'ja' }}
-        center={center}
+        center={mapCenter}
         defaultZoom={15}
         yesIWantToUseGoogleMapApiInternals={true}
         onGoogleApiLoaded={handleApiLoaded}

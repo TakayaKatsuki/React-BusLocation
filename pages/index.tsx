@@ -5,13 +5,30 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const IndexWrapper = styled.div`
   /* display: flex;
-  flex-direction: column; */
+  flex-direction: column;
+  height: 100vh; */
 `
+const IndexMain = styled.main`
+  /* flex: 1;
+  position: relative; */
+`
+const IndexDiv = styled.div`
+  /* position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; */
+`
+
 
 const IndexPage = () => (
   <IndexWrapper>
     <Layout title='のっティバスどこ'>
-      <MapControlTab />
+      <IndexMain>
+        <IndexDiv>
+          <MapControlTab />
+        </IndexDiv>
+      </IndexMain>
     </Layout>
   </IndexWrapper>
 )
