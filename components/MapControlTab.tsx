@@ -5,18 +5,33 @@ import styled from "styled-components";
 import Map from "./MapActivity/Map";
 import { routeData } from "../src/utils/data";
 
+//type-interface
 type data = {
 	id: number
 	color: string
 	center: {lat: number, lng: number}
 }
-
+//styled-components
+const MapTab = styled(Nav)`
+	height: 50px;
+	align-items: end;
+`
+const TabButton = styled(Nav.Link)`
+	border: none !important;
+	display: grid;
+	align-items: center;
+	&:hover{
+		height:50px !important;
+	}
+	&.active{
+		height:50px;
+	}
+`
 const ColorBar = styled.div`
 	height: 5px;
 	width: 100vw;
 	background-color: ${props => props.color};
 `
-
 const MapWrapper = styled.div`
 	
 `
@@ -26,9 +41,9 @@ const MapControlTab: VFC = () => {
 
   return(
 	<>
-		<Nav justify variant="tabs" className="d-flex flex-row" defaultActiveKey={"1"} >
+		<MapTab justify variant="tabs" className="d-flex flex-row bg-light" defaultActiveKey={"1"} >
 			{routeData.map( data => (
-					<Nav.Link 
+					<TabButton 
 						key={data.id} 
 						eventKey={data.id}
 						style={{backgroundColor: data.color, color: "white"}}
@@ -37,10 +52,11 @@ const MapControlTab: VFC = () => {
 							setRoute(data)
 						}}
 						>
-							{data.name}
-					</Nav.Link>
+							<span className='d-md-none'>{data.name}</span>
+							{/* <span className=''>{data.name}</span> */}
+					</TabButton>
 				))}
-		</Nav>
+		</MapTab>
 		<ColorBar color={route.color}/>
 		<div>
 			<div>

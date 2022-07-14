@@ -1,16 +1,9 @@
-import { VFC } from "react"
+import React from 'react'
 
-
-type Props = {
-	id: string
-	name: string
-}
-
-const BusstopMarker: VFC<Props> = ({ id, name}) => {
+const SetBusStop = () => {
 	return (
-		<div>
-			<div title={name} />
-		</div>
+		<div>SetBusStop</div>
 	)
 }
-export default BusstopMarker
+
+export default SetBusStop

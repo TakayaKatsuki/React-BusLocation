@@ -44,7 +44,7 @@ const Map: VFC<Props> = ({ route, center }) => {
     }
     setCurrentPosition(currentPosition)
     setMapCenter(currentPosition)
-    console.log(currentPosition)
+    // console.log(currentPosition)
   }
   const error = () => {
     

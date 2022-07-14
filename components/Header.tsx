@@ -1,13 +1,10 @@
 import React, { VFC } from 'react'
-import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBox, faEnvelope, faInfo } from '@fortawesome/free-solid-svg-icons'
+import { Container, Navbar } from 'react-bootstrap'
 import image from "../img/top-icon.png";
 import Image from "next/image";
+import Menu from './Menu';
 
-const IconStyle: React.CSSProperties = {
-  height: "20px",
-}
+
 
 const Header: VFC = () => {
   return (
@@ -20,31 +17,13 @@ const Header: VFC = () => {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-false`} />
           <Navbar.Collapse>
-            <Navbar.Offcanvas 
+            <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-false`}
               aria-labelledby={`offcanvasNavbarLabel-expand-false`}
               placement="end"
-              className='wf-roundedmplus1c'
-              >
-              <Offcanvas.Header closeButton>
-                <h4>メニュー</h4>
-              </Offcanvas.Header>
-              {/* コンポーネント化↓ */}
-              <Nav variant='tabs' className='flex-column text-center'>
-                <Nav.Link className='mr-3'>
-                  <FontAwesomeIcon style={ IconStyle } icon={ faInfo } />{' '}
-                  お知らせ
-                </Nav.Link>
-                <Nav.Link href="https://goo.gl/forms/kI5PV0gUbs13fVhK2" className='mr-3'>
-                  <FontAwesomeIcon style={ IconStyle } icon={ faEnvelope } />{' '}
-                  アンケート
-                </Nav.Link>
-                <Nav.Link className='mr-3'>
-                  {/* アイコン適当なので変える */}
-                  <FontAwesomeIcon style={ IconStyle } icon={ faBox }/>{' '}
-                  近隣の施設検索
-                </Nav.Link>
-              </Nav>
+              className='bg-light wf-roundedmplus1c'
+            >
+              <Menu />
             </Navbar.Offcanvas>
           </Navbar.Collapse>
         </Container>
