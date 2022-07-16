@@ -1,0 +1,16 @@
+{
+  "cityHall": [
+    {
+      "facilityName": "野々市市役所",
+      "lat": 36.519841,
+      "lng": 136.609287,
+      "img": "cityhall_nonoichi.png"
+    },
+    {
+      "facilityName": "白山市役所",
+      "lat": 36.514197,
+      "lng": 136.564194,
+      "img": "cityhall_hakusan.png"
+    }
+  ]
+}

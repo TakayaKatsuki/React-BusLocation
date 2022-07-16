@@ -1,0 +1,28 @@
+{
+  "hospital": [
+    {
+      "facilityName": "金沢赤十字病院",
+      "lat": 36.530330,
+      "lng": 136.636156,
+      "img": "hospital_sekijuji.png"
+    },
+    {
+      "facilityName": "南ヶ丘病院",
+      "lat": 36.52678,
+      "lng": 136.59429,
+      "img": "hospital_minamigaoka.png"
+    },
+    {
+      "facilityName": "金沢脳神経外科病院",
+      "lat": 36.526453,
+      "lng": 136.58783,
+      "img": "hospital_noushinkei.png"
+    },
+    {
+      "facilityName": "松任石川中央病院",
+      "lat": 36.510660,
+      "lng": 136.565833,
+      "img": "hospital_tyuou.png"
+    }
+  ]
+}

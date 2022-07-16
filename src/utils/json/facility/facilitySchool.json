@@ -1,0 +1,40 @@
+{
+  "school": [
+    {
+      "facilityName": "明倫高校",
+      "lat": 36.525039,
+      "lng": 136.60028,
+      "img": "school_meirin_koukou.png"
+    },
+    {
+      "facilityName": "翠星高校",
+      "lat": 36.514336,
+      "lng": 136.576139,
+      "img": "school_suisei_koukou.png"
+    },
+    {
+      "facilityName": "錦丘高校",
+      "lat": 36.530218180005065,
+      "lng": 136.6414712232251,
+      "img": "school_nishikioka_koukou.png"
+    },
+    {
+      "facilityName": "松任高校",
+      "lat": 36.521210838673184,
+      "lng": 136.5617602512528,
+      "img": "school_matto_koukou.png"
+    },
+    {
+      "facilityName": "金沢工業大学",
+      "lat": 36.5301869800050,
+      "lng": 136.62783826740278,
+      "img": "school_kanazawakougyou_daigaku.png"
+    },
+    {
+      "facilityName": "県立大学",
+      "lat": 36.50749,
+      "lng": 136.596253,
+      "img": "school_ishikawakenritsu_daigaku.png"
+    }
+  ]
+}

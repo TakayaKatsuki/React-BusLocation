@@ -1,0 +1,16 @@
+{
+  "library": [
+    {
+      "facilityName": "野々市市立図書館･カレード",
+      "lat": 36.529183,
+      "lng": 136.608578,
+      "img": "library_shiritsu.png"
+    },
+    {
+      "facilityName": "白山市立松任図書館",
+      "lat": 36.524761702201246,
+      "lng": 136.56724565229038,
+      "img": "library_matto.png"
+    }
+  ]
+}
