@@ -3,7 +3,7 @@ import { Nav } from "react-bootstrap";
 import styled from "styled-components";
 
 import Map from "./MapActivity/Map";
-import { routeData } from "../src/utils/data";
+import { routeData } from "~/utils/data";
 
 //type-interface
 type data = {
@@ -20,11 +20,12 @@ const TabButton = styled(Nav.Link)`
 	border: none !important;
 	display: grid;
 	align-items: center;
+	height: 40px;
 	&:hover{
-		height:50px !important;
+		height: 50px !important;
 	}
 	&.active{
-		height:50px;
+		height: 50px;
 	}
 `
 const ColorBar = styled.div`
@@ -52,8 +53,8 @@ const MapControlTab: VFC = () => {
 							setRoute(data)
 						}}
 						>
-							<span className='d-md-none'>{data.name}</span>
-							{/* <span className=''>{data.name}</span> */}
+							<span className='d-md-none'>{data.name.replace("ルート","")}</span>
+							<span className='d-none d-md-grid'>{data.name}</span>
 					</TabButton>
 				))}
 		</MapTab>

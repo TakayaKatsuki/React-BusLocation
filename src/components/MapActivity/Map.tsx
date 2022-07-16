@@ -3,11 +3,11 @@ import GoogleMapReact from "google-map-react"
 import options from './MapStyle'
 import { Busstop } from '../../interfaces'
 
-import CentralInfo from '../../src/utils/json/busstoplocation/centralBusStops.json'
-import SouthInfo from '../../src/utils/json/busstoplocation/southBusStops.json'
-import WestInfo from '../../src/utils/json/busstoplocation/westBusStops.json'
-import NorthInfo from '../../src/utils/json/busstoplocation/northBusStops.json'
-import NonkeyInfo from '../../src/utils/json/busstoplocation/nonkeyBusStops.json'
+import CentralInfo from '~/utils/json/busstoplocation/centralBusStops.json'
+import SouthInfo from '~/utils/json/busstoplocation/southBusStops.json'
+import WestInfo from '~/utils/json/busstoplocation/westBusStops.json'
+import NorthInfo from '~/utils/json/busstoplocation/northBusStops.json'
+import NonkeyInfo from '~/utils/json/busstoplocation/nonkeyBusStops.json'
 import CurrentMarker from './CurrentMarker';
 
 type Props = {
@@ -19,6 +19,8 @@ type location = {
 	lat: number
 	lng: number
 }
+
+
 
 const Map: VFC<Props> = ({ route, center }) => {
   // const [busstop, setBusstop] = useState<Busstop[]>()
@@ -47,7 +49,7 @@ const Map: VFC<Props> = ({ route, center }) => {
     // console.log(currentPosition)
   }
   const error = () => {
-    
+    alert("現在地の取得に失敗しました。\n")
   }
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(success, error);
@@ -59,14 +61,22 @@ const Map: VFC<Props> = ({ route, center }) => {
       markerRef.current.forEach((m) => {
         m.setMap(null)
       })
+      // const icons = ['central', 'south', 'west', 'north', 'nonkey'].map(route => {{
+      //   // `../../../images/Map/bus-stop-${route}.webp`
+      // }})
+      const icons = ['central', 'south', 'west', 'north', 'nonkey']
+      console.log(icons)
       switch (route) {
         case 1:
           CentralInfo.central.forEach( info => {
             const marker = new maps.Marker({
               map,
               position: {lat: parseFloat(info.lat), lng: parseFloat(info.lng)},
-              context: info.location
-              // icon: image
+              context: info.location,
+              icon: {
+                url: `../../../images/Map/bus-stop-${icons[route - 1]}.webp`,
+                scaledSize: new maps.Size(27, 42)
+              }
             })
             markerRef.current.push(marker)
             bounds.extend(marker.position)
@@ -77,8 +87,11 @@ const Map: VFC<Props> = ({ route, center }) => {
             const marker = new maps.Marker({
               map,
               position: {lat: parseFloat(info.lat), lng: parseFloat(info.lng)},
-              context: info.location
-              // icon: image
+              context: info.location,
+              icon: {
+                url: `../../../images/Map/bus-stop-${icons[route - 1]}.webp`,
+                scaledSize: new maps.Size(27, 42)
+              }
             })
             markerRef.current.push(marker)
             bounds.extend(marker.position)
@@ -89,8 +102,11 @@ const Map: VFC<Props> = ({ route, center }) => {
             const marker = new maps.Marker({
               map,
               position: {lat: parseFloat(info.lat), lng: parseFloat(info.lng)},
-              context: info.location
-              // icon: image
+              context: info.location,
+              icon: {
+                url: `../../../images/Map/bus-stop-${icons[route - 1]}.webp`,
+                scaledSize: new maps.Size(27, 42)
+              }
             })
             markerRef.current.push(marker)
             bounds.extend(marker.position)
@@ -101,8 +117,11 @@ const Map: VFC<Props> = ({ route, center }) => {
             const marker = new maps.Marker({
               map,
               position: {lat: parseFloat(info.lat), lng: parseFloat(info.lng)},
-              context: info.location
-              // icon: image
+              context: info.location,
+              icon: {
+                url: `../../../images/Map/bus-stop-${icons[route - 1]}.webp`,
+                scaledSize: new maps.Size(27, 42)
+              }
             })
             markerRef.current.push(marker)
             bounds.extend(marker.position)
@@ -113,8 +132,11 @@ const Map: VFC<Props> = ({ route, center }) => {
             const marker = new maps.Marker({
               map,
               position: {lat: parseFloat(info.lat), lng: parseFloat(info.lng)},
-              context: info.location
-              // icon: image
+              context: info.location,
+              icon: {
+                url: `../../../images/Map/bus-stop-${icons[route - 1]}.webp`,
+                scaledSize: new maps.Size(27, 42)
+              }
             })
             markerRef.current.push(marker)
             bounds.extend(marker.position)

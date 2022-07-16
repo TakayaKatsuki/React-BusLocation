@@ -1,10 +1,8 @@
 import React, { VFC } from 'react'
 import { Container, Navbar } from 'react-bootstrap'
-import image from "../img/top-icon.png";
-import Image from "next/image";
-import Menu from './Menu';
-
-
+import Logo from "../../public/images/top-icon.webp"
+import Image from "next/image"
+import Menu from './Menu'
 
 const Header: VFC = () => {
   return (
@@ -13,7 +11,7 @@ const Header: VFC = () => {
         <Container fluid>
           <Navbar.Brand className='extra-bold d-flex me-auto'>
             のっティバスどこ
-            <Image src={image} height="30" width="23.37" />
+            <Image src={Logo} height="30" width="23.37" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-false`} />
           <Navbar.Collapse>
