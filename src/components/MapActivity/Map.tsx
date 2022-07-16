@@ -65,7 +65,6 @@ const Map: VFC<Props> = ({ route, center }) => {
       //   // `../../../images/Map/bus-stop-${route}.webp`
       // }})
       const icons = ['central', 'south', 'west', 'north', 'nonkey']
-      console.log(icons)
       switch (route) {
         case 1:
           CentralInfo.central.forEach( info => {
